@@ -1,0 +1,3 @@
+Id,Name,Coordinates:x,Coordinates:y,CreationDate,StudentCount,ExpelledStudents,FormOfEducation,Semester,GroupAdmin:Name,weight,hairColor,Nationality,Location:x,Location:y,LocationName
+1,asdf,32,23,2023-04-09T10:02:41.628382100+03:00[Europe/Moscow],32,23,DISTANCE_EDUCATION,FIRST,gasf,44.0,GREEN,VATICAN,342,23.0,asf
+2,asdf,32,23,2023-04-12T03:18:59.895035200+03:00[Europe/Moscow],32,32,,,asdf,32.0,GREEN,,32,2.0,asdf
