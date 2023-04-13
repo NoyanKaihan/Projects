@@ -1,6 +1,6 @@
 package collection;
 
-import data.Person;
+import modules.Person;
 import exceptions.DataException;
 import exceptions.EmptyCollectionException;
 import exceptions.NoHeadException;

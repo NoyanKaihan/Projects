@@ -9,36 +9,40 @@ public class CommandWrapper {
 
     /**
      * Argumentative commands
+     *
      * @param command
      * @param argument
      */
-    public CommandWrapper(String command, String argument){
+    public CommandWrapper(String command, String argument) {
         this.argument = argument;
         this.command = command;
     }
 
     /**
      * Non-Argumentative commands
+     *
      * @param command
      */
-    public CommandWrapper(String command){
+    public CommandWrapper(String command) {
         argument = null;
-       this.command = command;
+        this.command = command;
     }
 
     /**
      * Method for getting command
+     *
      * @return String representing commands
      */
-    public String getCommand(){
+    public String getCommand() {
         return command;
     }
 
     /**
      * Method for getting argument
+     *
      * @return String representing arguments
      */
-    public String getArg(){
+    public String getArg() {
         return argument;
     }
 }
