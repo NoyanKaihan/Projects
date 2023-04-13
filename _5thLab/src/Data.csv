@@ -1,5 +1,3 @@
 Id,Name,Coordinates:x,Coordinates:y,CreationDate,StudentCount,ExpelledStudents,FormOfEducation,Semester,GroupAdmin:Name,weight,hairColor,Nationality,Location:x,Location:y,LocationName
-
-2,asdf,32,23,2023-04-13T05:00:15.477329800+03:00[Europe/Moscow],32,3,,FIRST,fas,32.0,GREEN,VATICAN,32,2.0,asd
-4,sadf,32,23,2023-04-13T05:01:29.627642500+03:00[Europe/Moscow],32,23,FULL_TIME_EDUCATION,,sadf,32.0,GREEN,,32,3.0,sdf
-3,asf,32,23,2023-04-13T05:00:43.086452900+03:00[Europe/Moscow],3,3,DISTANCE_EDUCATION,FIRST,ASF,32.0,GREEN,JAPAN,23,3.0,sdf1,asdf,32,23,2023-04-13T03:42:48.618788700+03:00[Europe/Moscow],23,3,,,asdf,32.0,GREEN,,32,3.0,asdf
+4,asdf,32,32,2023-04-13T07:19:26.537206900+03:00[Europe/Moscow],23,23,,THIRD,asdf,332.0,GREEN,VATICAN,39,39.0,asdf
+2,asdf,32,3,2023-04-13T07:20:21.396321700+03:00[Europe/Moscow],3,3,DISTANCE_EDUCATION,FIRST,sf,23.0,GREEN,JAPAN,49,494.0,43asd

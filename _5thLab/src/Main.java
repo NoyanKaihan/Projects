@@ -31,6 +31,5 @@ public class Main {
         CommandManager commandManager = new CommandManager(studyGroupCollectionManager, console, fileManager);
         commandManager.consoleMode();
 
-
     }
 }

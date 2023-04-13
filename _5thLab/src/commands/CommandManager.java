@@ -74,14 +74,14 @@ public class CommandManager implements Command {
             } catch (NumberFormatException e) {
                 System.out.println(e.getMessage());
             }
-            if (collectionManager.getCollection().isEmpty()) throw new EmptyCollectionException("Collection is empty");
-            if (!collectionManager.isIdInCollection(id)) throw new DataException("No such Id");
+            if (collectionManager.getCollection().isEmpty()) throw new EmptyCollectionException(ConsoleColor.RED_BACKGROUND+"Collection is empty"+ConsoleColor.RESET+"'\n");
+            if (!collectionManager.isIdInCollection(id)) throw new DataException(ConsoleColor.RED_BACKGROUND+"No such Id"+ConsoleColor.RESET+"\n");
             collectionManager.update(id, inputManager.readStudyGroup());
         });
         addCommand("remove_by_id", (argument) -> {
             int id = 0;
             if (argument == null || argument.equals("")) {
-                throw new DataException();
+                throw new DataException(ConsoleColor.RED_BACKGROUND+"argument can't be null :( "+ConsoleColor.RESET+"\n");
             }
             try {
                 id = Integer.parseInt(argument);

@@ -1,5 +1,6 @@
 package csv;
 
+import collection.StudyGroupCollectionManager;
 import modules.Person;
 import modules.StudyGroup;
 
@@ -11,10 +12,12 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class CsvBuilder {
     private PriorityQueue<StudyGroup> collection;
+    private StudyGroupCollectionManager collectionManager;
     private static final String CSV_SEPARATOR = ",";
 
-    public CsvBuilder(PriorityQueue<StudyGroup> collection) {
+    public CsvBuilder(PriorityQueue<StudyGroup> collection, StudyGroupCollectionManager collectionManager) {
         this.collection = collection;
+        this.collectionManager = collectionManager;
     }
 
     /**
@@ -46,10 +49,9 @@ public class CsvBuilder {
             oneLine.append(studyGroup.getSemesterEnum() == null ? "" : studyGroup.getSemesterEnum());
             oneLine.append(CSV_SEPARATOR);
             oneLine.append(new NestedObjectBuilder().nestedPerson(studyGroup.getGroupAdmin()));
-            if (studyGroup.getId() > 1)
-                csv.set(csv.get() + "\n");
-            if (csv.get() != null)
-                csv.set(csv.get() + oneLine);
+            oneLine.append("\n");
+            csv.set(csv.get() + oneLine);
+
         });
         return column + csv.get();
     }
@@ -99,5 +101,14 @@ public class CsvBuilder {
         private String nestedLocation(long x, Double y, String name) {
             return x + CSV_SEPARATOR + y + CSV_SEPARATOR + name;
         }
+
+    }
+
+    @Override
+    public String toString() {
+        return "CsvBuilder{" +
+                "collection=" + collection +
+                ", collectionManager=" + collectionManager +
+                '}';
     }
 }

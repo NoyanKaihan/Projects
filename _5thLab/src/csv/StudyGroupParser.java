@@ -188,18 +188,19 @@ public class StudyGroupParser {
         try {
             location = new Location(locationXParser(locationX), locationYParser(locationY), locationName);
             return location;
-        }catch (DataParseException exception){
+        } catch (DataParseException exception) {
             throw new DataParseException(exception.getMessage());
         }
     }
 
     /**
      * Location X parsing
+     *
      * @param lx1
      * @return long x
      * @throws DataParseException
      */
-    private long locationXParser(String lx1)throws DataParseException{
+    private long locationXParser(String lx1) throws DataParseException {
         long lx = 0;
         try {
             lx = Long.parseLong(lx1);
@@ -211,11 +212,12 @@ public class StudyGroupParser {
 
     /**
      * Location Y parsing
+     *
      * @param ly1
      * @return double y
      * @throws DataParseException
      */
-    private double locationYParser(String ly1)throws DataParseException{
+    private double locationYParser(String ly1) throws DataParseException {
         double ly = 0;
         try {
             ly = Double.parseDouble(ly1);
@@ -224,6 +226,7 @@ public class StudyGroupParser {
             throw new DataParseException(ConsoleColor.RED_BACKGROUND + "Invalid location y :(" + ConsoleColor.RESET + "\n");
         }
     }
+
     /**
      * StudyGroup Parsing
      *
@@ -264,10 +267,11 @@ public class StudyGroupParser {
 
     /**
      * StudyGroup Id parsing
+     *
      * @param id
      * @return int id
      */
-    private Integer idParsing(String id){
+    private Integer idParsing(String id) {
         int id1 = 0;
         try {
             id1 = Integer.parseInt(id);
@@ -279,10 +283,11 @@ public class StudyGroupParser {
 
     /**
      * StudyGroup Student count parsing
+     *
      * @param studentsCount
      * @return long studentsCount
      */
-    private long studyGroupStudentCount(String studentsCount){
+    private long studyGroupStudentCount(String studentsCount) {
         long sC = 0;
         try {
             sC = Long.parseLong(studentsCount);
@@ -294,10 +299,11 @@ public class StudyGroupParser {
 
     /**
      * StudyGroup Expelled Students parsing
+     *
      * @param expelledStudents
      * @return long expelledStudents
      */
-    private long studyGroupExpelledStudents(String expelledStudents){
+    private long studyGroupExpelledStudents(String expelledStudents) {
         long eS = 0;
         try {
             eS = Long.parseLong(expelledStudents);

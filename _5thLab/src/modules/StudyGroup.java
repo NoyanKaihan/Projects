@@ -76,20 +76,20 @@ public class StudyGroup implements DataValidator, Comparable<StudyGroup> {
                 "   \tCreationDate : " + creationDate + "\n" +
                 "   \tStudent s count : " + studentsCount + "\n" +
                 "   \tExpelled Students : " + expelledStudents + "\n";
-        if(formOfEducation !=null ) {
+        if (formOfEducation != null) {
             s += "   \tForm of education : " + formOfEducation + "\n";
-        }else if(formOfEducation == null){
-            s += "   \tForm of education : "+'\n';
+        } else if (formOfEducation == null) {
+            s += "   \tForm of education : " + '\n';
         }
         if (formOfEducation != null) {
             s += "   \tQuality of form of education : " + formOfEducation.quality + "\n";
         } else if (formOfEducation == null) {
             s += "  \tQuality of form of education :\n";
         }
-        if(semesterEnum !=null) {
+        if (semesterEnum != null) {
             s += "   \tSemester : " + semesterEnum + "\n";
-        }else if(semesterEnum == null){
-            s += "   \tSemester : "+ "\n";
+        } else if (semesterEnum == null) {
+            s += "   \tSemester : " + "\n";
         }
         s += "   \tGroup Admin : " + groupAdmin;
         return s;

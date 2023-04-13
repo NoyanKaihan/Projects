@@ -103,7 +103,7 @@ public class FileManager {
         try {
             create(new File(path));
         } catch (FileException e) {
-            System.out.println(ConsoleColor.RED_BACKGROUND+"Can't clear the file :("+ConsoleColor.RESET+"\n");
+            System.out.println(ConsoleColor.RED_BACKGROUND + "Can't clear the file :(" + ConsoleColor.RESET + "\n");
         }
     }
 }

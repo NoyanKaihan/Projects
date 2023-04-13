@@ -24,6 +24,9 @@ public class StudyGroupCollectionManager implements CollectionManager<StudyGroup
         initDate = ZonedDateTime.now();
     }
 
+    public HashSet<Integer> getUniqueIds() {
+        return uniqueIds;
+    }
 
     public void setCollection(PriorityQueue<StudyGroup> collection) {
         this.collection = collection;
@@ -36,7 +39,7 @@ public class StudyGroupCollectionManager implements CollectionManager<StudyGroup
 
     @Override
     public String getInfo() {
-        return ConsoleColor.YELLOW+"PriorityQueue of StudyGroup , size: " + collection.size() + ", initialization date: " + initDate+ConsoleColor.RESET+"\n";
+        return ConsoleColor.YELLOW + "PriorityQueue of StudyGroup , size: " + collection.size() + ", initialization date: " + initDate + ConsoleColor.RESET + "\n";
     }
 
     @Override
@@ -59,7 +62,6 @@ public class StudyGroupCollectionManager implements CollectionManager<StudyGroup
             studyGroup.setId(autoId());
             if (!isRepeated(studyGroup)) {
                 collection.add(studyGroup);
-                sort();
                 System.out.print(ConsoleColor.GREEN_BOLD + "New element : \n" + ConsoleColor.RESET);
                 System.out.print(ConsoleColor.YELLOW);
                 System.out.println(studyGroup);
@@ -101,7 +103,7 @@ public class StudyGroupCollectionManager implements CollectionManager<StudyGroup
         try {
             answer = isCollectionMember(studyGroup);
         } catch (DataException exception) {
-
+            throw new RepeatedDataException(ConsoleColor.RED_BACKGROUND + "studygroup is repeated :(" + ConsoleColor.RESET + "\n");
         }
         return answer;
     }
@@ -126,7 +128,7 @@ public class StudyGroupCollectionManager implements CollectionManager<StudyGroup
                 setCollection(cp);
             }
         } catch (NoSuchDataException exception) {
-            System.err.println(id + " is not an id in collection!!!");
+            System.out.print(ConsoleColor.RED_BACKGROUND+""+id + " is not an id in collection!!!"+ConsoleColor.RESET+"\n");
         }
     }
 
@@ -134,14 +136,11 @@ public class StudyGroupCollectionManager implements CollectionManager<StudyGroup
     public void removeById(Integer id) {
         try {
             if (isIdInCollection(id))
-                for (StudyGroup studyGroup : collection) {
-                    if (studyGroup.getId() == id) {
-                        collection.remove(studyGroup);
-                        uniqueIds.remove(id);
-                        System.out.print(ConsoleColor.GREEN_BACKGROUND + "StudyGroup with #" + id + " has been removed successfully :)" + ConsoleColor.RESET + "\n");
-                    }
-                }
+                if (collection.removeIf(studyGroup -> studyGroup.getId() == id) && uniqueIds.removeIf(uniqueid -> uniqueid == id))
+                    System.out.print(ConsoleColor.GREEN_BACKGROUND + "StudyGroup with #" + id + " has been removed successfully :)" + ConsoleColor.RESET + "\n");
+
         } catch (NoSuchDataException exception) {
+            System.out.print(ConsoleColor.RED_BACKGROUND+" id #"+id+"is not an id in collection :("+ConsoleColor.RESET+"\n");
         }
     }
 
@@ -204,7 +203,7 @@ public class StudyGroupCollectionManager implements CollectionManager<StudyGroup
         if (isGreater(studyGroup)) {
             add(studyGroup);
 
-        } else System.err.print(ConsoleColor.RED_BACKGROUND + "Element is not greater" + ConsoleColor.RESET + "\n");
+        } else System.out.print(ConsoleColor.RED_BACKGROUND + "Element is not greater" + ConsoleColor.RESET + "\n");
     }
 
     @Override
@@ -212,7 +211,7 @@ public class StudyGroupCollectionManager implements CollectionManager<StudyGroup
         PriorityQueue<StudyGroup> priorityQueue = new PriorityQueue<>();
         collection.forEach(studyGroup1 -> {
             if (studyGroup1.compareTo(studyGroup) > 0) {
-                System.out.println(ConsoleColor.GREEN_BACKGROUND + "StudyGroup with #" + studyGroup1.getId() + " has been remove from the collection" + ConsoleColor.RESET + "\n");
+                System.out.print(ConsoleColor.GREEN_BACKGROUND + "StudyGroup with #" + studyGroup1.getId() + " has been remove from the collection" + ConsoleColor.RESET + "\n");
             } else {
                 priorityQueue.add(studyGroup1);
             }
@@ -264,7 +263,7 @@ public class StudyGroupCollectionManager implements CollectionManager<StudyGroup
     public String csvSerializer() throws EmptyCollectionException {
         String csv = "";
         if (collection != null && !collection.isEmpty()) {
-            CsvBuilder builder = new CsvBuilder(collection);
+            CsvBuilder builder = new CsvBuilder(collection, this);
             csv = builder.build();
         } else {
             throw new EmptyCollectionException(ConsoleColor.RED_BACKGROUND + "Collection is Empty!!!" + ConsoleColor.RESET + "\n");
@@ -306,5 +305,6 @@ public class StudyGroupCollectionManager implements CollectionManager<StudyGroup
                             last = (StudyGroup) queue[j];
         return last;
     }
+
 }
 
