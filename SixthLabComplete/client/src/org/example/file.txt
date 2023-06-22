@@ -1,0 +1,4 @@
+help
+show
+remove_by_id 1
+execute_script C:\Users\kaiha\OneDrive\Desktop\SixthLab\client\src\org\example\file.txt
