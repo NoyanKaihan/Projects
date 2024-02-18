@@ -1,0 +1,2 @@
+Id,Name,Coordinates:x,Coordinates:y,CreationDate,StudentCount,ExpelledStudents,FormOfEducation,Semester,GroupAdmin:Name,weight,hairColor,Nationality,Location:x,Location:y,LocationName
+1,32,23,234,2023-05-26T13:55:21.611879400+03:00[Europe/Moscow],23,23,,,23,23.0,GREEN,VATICAN,32,23.0,asdf
