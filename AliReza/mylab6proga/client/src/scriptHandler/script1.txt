@@ -1,0 +1,4 @@
+help
+show
+show
+execute_script C:\Users\mozaffari\Desktop\mylab6proga\client\src\scriptHandler\script1.txt

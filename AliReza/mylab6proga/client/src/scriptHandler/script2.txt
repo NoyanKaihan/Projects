@@ -1,0 +1,34 @@
+show
+update 1234567
+cat
+12
+78
+1000
+ksaj
+10
+grams
+dima
+2000-12-09
+170
+red
+234
+12
+tehran
+show
+insert 1234567
+cat
+12
+78
+1000
+liza
+10
+grams
+dima
+2000-12-09
+170
+red
+234
+12
+tehran
+show
+info
